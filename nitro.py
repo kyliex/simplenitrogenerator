@@ -2,6 +2,8 @@ import random
 import os
 
 
+
+
 def Nitro():
     code = ''.join(random.choices(randomness + randomnum, k=16))
     return f'https://discord.gift/{code}'
@@ -16,9 +18,11 @@ nitro_file = open("nitro.txt", 'a')
 
 try:
 	for i in range(int(numbers)):
-		print(nitro_file.write(Nitro() + "\n"))
+		print(nitro_file.write(f"[NITRO GEN #{i}] " + Nitro() + "\n"))
 
 
 except:
+	os.system('cls')
+	print("Generating nitro codes, ctrl + c to stop.")
 	while True:
-		print(nitro_file.write(Nitro() + "\n"))
+		nitro_file.write(Nitro() + "\n")
